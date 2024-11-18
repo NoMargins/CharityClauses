@@ -16,11 +16,11 @@ const SentNotificationPopup = ({ childInfo, id, onSentPopupClose, wizardEmail })
 
   const handleVerificationSubmit = () => {
     if (!enteredMail) {
-      alert('Будь ласка, введіть Ваш e-mail, вказаний при реєстрації.');
+      alert('Будь ласка, введи свій e-mail, вказаний при реєстрації.');
       return;
     }
     if (enteredMail !== wizardEmail) {
-      alert('Ваш e-mail не співпадає з введеним при реєстрації. Будь ласка, перевірте його та спробуйте ще раз.');
+      alert('Цей e-mail не співпадає з введеним при реєстрації. Будь ласка, перевір його та спробуй ще раз.');
       return;
     }
     setSecondStep(true);
@@ -35,7 +35,7 @@ const SentNotificationPopup = ({ childInfo, id, onSentPopupClose, wizardEmail })
 
   const handleIsSentSubmit = async () => {
     if (!sentDate || !sentInfo) {
-      alert('Будь ласка, перевірте, чи всі дані надано.');
+      alert('Будь ласка, перевір, чи всі дані надано.');
       return;
     }
   
@@ -85,7 +85,7 @@ const SentNotificationPopup = ({ childInfo, id, onSentPopupClose, wizardEmail })
         {serverResponse === '' && !secondStep && (
           <div className='child-info' style={{ marginTop: '30px' }}>
             <p style={{color: '#95011C', fontSize: '22px'}}>
-              <strong>Будь ласка, спершу підтвердьте Вашу особу, увівши e-mail, вказаний Вами при реєстрації:</strong>
+              <strong>Будь ласка, спершу підтвердь свою особу та введи e-mail, вказаний при реєстрації:</strong>
             </p>
             <input
               type='email'
@@ -109,7 +109,7 @@ const SentNotificationPopup = ({ childInfo, id, onSentPopupClose, wizardEmail })
         <div className='is-sent-container' style={{ display: 'flex', flexDirection: 'column', marginTop: '30px', color: '#0056b3', fontWeight: '700' }}>
           <h2>Повідомити про відправку подарунка</h2>
           <label className='form-check-label' htmlFor='form-date-input' style={{marginTop: '20px'}}>
-            Оберіть дату відправки подарунку:
+            Обери дату відправки/передачі HR подарунку:
           </label>
           <input
             type='date'
@@ -123,7 +123,7 @@ const SentNotificationPopup = ({ childInfo, id, onSentPopupClose, wizardEmail })
           />
 
           <label className='form-check-label' htmlFor='info-sent'>
-            Введіть номер ТТН:
+            Ім'я HR/номер ТТН:
           </label>
           <input
             type='text'
