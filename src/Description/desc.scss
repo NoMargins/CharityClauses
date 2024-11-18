@@ -1,0 +1,28 @@
+.description {
+    width: 100%;
+    background-color: #a7ccec;
+    color: #440704;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // margin-bottom: 20px;
+    @media (max-width: 800px) {
+        padding: 12px;
+    }
+    & .section {
+        width: 70%;
+        text-align: center;
+        @media (max-width: 800px) {
+            width: 90%;
+        }
+    & p {
+        font-size: 18px;
+        line-height: 24px;
+        @media (max-width: 800px) {
+            font-size: 14px;
+            line-height: 18px;
+        }
+    }
+}
+}

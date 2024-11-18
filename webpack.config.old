@@ -1,0 +1,88 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlInlineCssWebpackPlugin = require('html-inline-css-webpack-plugin').default;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
+
+module.exports = (env, argv) => {
+  const isProduction = argv.mode === 'production';
+  const config = {
+    entry: './src/index.jsx',
+    output: {
+      filename: 'bundle.js',
+      path: path.resolve(__dirname, 'build'), // Цільовий каталог
+    },
+    module: {
+      rules: [
+        {
+          test: /.(js|jsx?)$/,
+          exclude: /node_modules/,
+          use: ['babel-loader'],
+        },
+        {
+          test: /.s?css$/,
+          use: [
+            isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+            'css-loader',
+            'sass-loader',
+          ],
+        },
+        {
+          test: /\.(gif|png|jpe?g|svg)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[path][name].[ext]',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    resolve: {
+      extensions: ['.js', '.jsx'],
+    },
+    plugins: [
+      new webpack.ProgressPlugin(),
+      new CleanWebpackPlugin(),
+      new HtmlWebpackPlugin({
+        template: './src/index.html',
+      }),
+      new HtmlInlineCssWebpackPlugin(),
+    ],
+    devServer: {
+      historyApiFallback: true,
+      open: true,
+      hot: true,
+      port: 8080,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+        'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+      },
+      proxy: {
+        '/api': {
+          target: 'https://dobrovershnyk.online',
+          secure: false,
+          changeOrigin: true,
+        },
+      },
+    },
+  };
+
+  if (isProduction) {
+    config.plugins.push(new webpack.HotModuleReplacementPlugin());
+  }
+
+  if (isProduction) {
+    config.plugins.push(
+      new MiniCssExtractPlugin({
+        filename: '[name].css',
+      })
+    );
+  }
+
+  return config;
+};

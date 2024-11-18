@@ -1,0 +1,17 @@
+.instruction {
+    width: 100%;
+    background-color: #a7ccec47;
+    
+    & .list-group-item {
+        font-size: 18px;
+        line-height: 22px;
+        @media (max-width: 800px) {
+            font-size: 14px;
+            line-height: 18px;
+        }
+        &:hover {
+            background-color: #a7ccec;
+            color: #440704;
+        }
+    }
+}

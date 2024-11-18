@@ -1,0 +1,72 @@
+.issent-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1003;
+}
+
+.popup-content {
+  position: relative;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1004;
+  max-width: 500px;
+  width: 90%; /* Адаптивна ширина з відсотковим значенням */
+
+  .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      border: none;
+      background: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #333; /* Змінено колір для кращої видимості */
+  }
+
+  input, p, label, .btn {
+      font-size: 18px; /* Єдиний розмір шрифту для елементів */
+      text-align: left; /* Вирівнювання тексту зліва для усіх елементів */
+  }
+
+  input[type="text"], input[type="email"], input[type="date"] {
+      width: 100%; /* Повна ширина для інпутів */
+      padding: 10px; /* Внутрішні відступи для інпутів */
+      margin-bottom: 15px; /* Відступ знизу для кожного інпута */
+      border: 1px solid #ccc;
+      border-radius: 4px;
+  }
+
+  .form-check {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+
+      .form-check-input {
+          margin-right: 10px;
+      }
+
+      .form-check-label {
+          margin: 0;
+      }
+  }
+
+  .btn-primary {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 4px;
+      &:hover {
+          background-color: #0056b3; /* Змінено колір для hover стану */
+      }
+  }
+}

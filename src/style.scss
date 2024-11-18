@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+#root {
+    font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif;
+}
+
+section.instructions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+@media (max-width: '800px') {
+    flex-direction: column;
+}
+}
+
+.wishes-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & h1 {
+    cursor: pointer;
+    }
+}
+
+.sticky-container {
+    position: -webkit-sticky; /* необхідно для Safari */
+    position: sticky;
+    top: 0; /* встановіть відступ від верху сторінки */
+    z-index: 1000; /* забезпечує, що контейнер буде над іншими елементами */
+    background: white; /* або будь-який інший колір фону */
+}
+  
