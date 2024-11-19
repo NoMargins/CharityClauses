@@ -84,7 +84,7 @@ const SentNotificationPopup = ({ childInfo, id, onSentPopupClose, wizardEmail })
         )}
         {serverResponse === '' && !secondStep && (
           <div className='child-info' style={{ marginTop: '30px' }}>
-            <p style={{color: '#95011C', fontSize: '22px'}}>
+            <p style={{color: '#000', fontSize: '16px'}}>
               <strong>Будь ласка, спершу підтвердь свою особу та введи e-mail, вказаний при реєстрації:</strong>
             </p>
             <input

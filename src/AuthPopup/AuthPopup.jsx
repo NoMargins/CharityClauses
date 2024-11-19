@@ -83,7 +83,7 @@ const AuthPopup = ({ childInfo, onSubmit, onClose, serverResponse, setServerResp
           &times;
         </button>
         <h2>Реєстрація Добровершника</h2>
-        {serverResponse !== '' && <h3>{serverResponse}</h3>}
+        {serverResponse !== '' && <p>{serverResponse}</p>}
         {serverResponse.length < 1 && childInfo && (
           <>
             <div className="child-info">

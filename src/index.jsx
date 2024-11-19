@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App_current';
+import App from './App';
 
 // const url = 'https://dobrovershnyk.online/api/get.php';
 const url = '/api/get.php/';

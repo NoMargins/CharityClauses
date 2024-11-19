@@ -32,4 +32,11 @@ section.instructions {
     z-index: 1000; /* забезпечує, що контейнер буде над іншими елементами */
     background: white; /* або будь-який інший колір фону */
 }
-  
+
+.descripting-sect {
+    display: flex;
+    flex-direction: row;
+    @media screen and (max-width: 900px) {
+        flex-direction: column;
+    }
+}

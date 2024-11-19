@@ -20,13 +20,13 @@ const App = ({ url }) => {
   const [isWaiting, setIsWaiting] = useState(false);
 
   const buttonStyle = (tabId) => ({
-    backgroundColor: activeTab === tabId ? '#95011C' : 'transparent',
+    backgroundColor: activeTab === tabId ? '#a7ccec' : 'transparent',
     color: activeTab === tabId ? 'white' : 'black',
     width: activeTab === tabId ? '55%' : '45%',
     textAlign: 'center',
     // borderRadius: '24px',
     marginTop: '12px',
-    border: '1px solid #95011C',
+    border: '1px solid #a7ccec',
   });
   
   // Updated buttonStyle using classnames
@@ -43,6 +43,8 @@ const App = ({ url }) => {
       try {
         const response = await fetch(url, { headers: { 'Cache-Control': 'no-cache' } });
         setIsWaiting(true);
+        console.log('Server response:', response); // Логування відповіді сервера
+  
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -51,6 +53,8 @@ const App = ({ url }) => {
         }
   
         const json = await response.json();
+        console.log('Raw JSON data:', json); // Логування початкових даних
+  
         const sortedData = [...json].sort((a, b) => {
           if (a.wizard === null && b.wizard !== null) return -1;
           if (a.wizard !== null && b.wizard === null) return 1;
@@ -66,29 +70,29 @@ const App = ({ url }) => {
         });
         const childrenWithWizard = json.filter(child => child.wizard !== null);
   
+        console.log('Sorted Data:', sortedData); // Логування відсортованих даних
+        console.log('Children without wizards:', childrenWithoutWizard); // Логування дітей без чарівників
+        console.log('Children with wizards:', childrenWithWizard); // Логування дітей із чарівниками
+  
         setIsWaiting(false);
         setCharityData(sortedData);
         setChildWithoutWizard(childrenWithoutWizard);
         setChildrenWithWizard(childrenWithWizard);
         setCurrentList(sortedData);
-        console.log(childrenWithoutWizard);
       } catch (error) {
         console.error(`Fetching error: ${error}`);
       }
     };
   
-    // Initial fetch
     fetchData();
   
-    // Fetch data every minute
     const intervalId = setInterval(() => {
       fetchData();
     }, 60000);
   
-    // Cleanup the interval on component unmount
     return () => clearInterval(intervalId);
   }, [url]);
-
+  
   const updateData = async () => {
     try {
       const response = await fetch(url, { headers: { 'Cache-Control': 'no-cache' } });
@@ -146,10 +150,12 @@ const App = ({ url }) => {
   return (
     <>
         <Banner />
-    <Description />
-      <section className='instructions' style={{ display: 'flex' }}>
+        <section className='descripting-sect' style={{ display: 'flex'}}>
+          <Description />
+          {currentList.length > 0 && <Map childrenWithoutWizard={childWithoutWizard} handleMarkerClick={handleMarkerClick} />}
+        </section>
+      <section className='instructions'>
         <Instruction />
-        {currentList.length > 0 && <Map childrenWithoutWizard={childWithoutWizard} handleMarkerClick={handleMarkerClick} />}
       </section>
       <div className="App" style={{ textAlign: 'center' }}>
         <div className='divided-wishes sticky-container' style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>

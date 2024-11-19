@@ -4,11 +4,11 @@ import './map.scss';
 
 const Map = ({ childrenWithoutWizard, handleMarkerClick }) => {
   const orphanageCoordinates = {
-    'Сквирський Дитячий будинок «Надія»': { top: '52%', left: '52%', shortName: 'Сквира' },
-    'Вінницький обласний соціально-психологічний центр реабілітації дітей': { top: '45%', left: '39%', shortName: 'Вінниця' },
-    'Центр соціально-психологічної реабілітації дітей, с. Хмільниця': { top: '5%', left: '60%', shortName: 'Хмільниця' },
-    'Черкаський обласний центр соціально-психологічної реабілітації дітей': { top: '36%', left: '48%', shortName: 'Черкаси' },
-    'Кам\'янець-Подільська спеціальна школа Хмельницької Обласної Ради': { top: '40%', left: '33%', shortName: 'Кам\'янець-Подільський' },
+    'Сквирський дитячий будинок «Надія» ': { top: '42%', left: '40%', shortName: 'Сквира' },
+    'Вінницький обласний соціально-психологічний центр реабілітації дітей': { top: '48%', left: '40%', shortName: 'Вінниця' },
+    'Центр соціально-психологічної реабілітації дітей с. Хмільниця': { top: '30%', left: '40%', shortName: 'Хмільниця' },
+    'Черкаський обласний центр соціально-психологічної реабілітації дітей': { top: '36%', left: '40%', shortName: 'Черкаси' },
+    'Кам\'янець-Подільська спеціальна школа Хмельницької обласної ради': { top: '54%', left: '40%', shortName: 'Кам\'янець-Подільський' },
   };
 
   return (
@@ -34,7 +34,7 @@ const Map = ({ childrenWithoutWizard, handleMarkerClick }) => {
             onClick={() => handleMarkerClick(orphanage.orphanage)}
           >
             <FaMapMarkerAlt size={20} color="red" />
-            <span className="marker-label">{`${coordinates.shortName}, ${orphanage.childrenCount} бажань`}</span>
+            <span className="marker-label">{`${coordinates.shortName}, ${orphanage.childrenCount} мрії(й)`}</span>
           </div>
         );
       })}

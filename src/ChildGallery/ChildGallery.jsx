@@ -32,7 +32,7 @@ const ChildGallery = ({ charityData, onSubmit }) => {
       // Перевірка поточних даних з API
       const currentDataResponse = await fetch(
         // `https://dobrovershnyk.online/api/post.php?id=${selectedChild.id}`
-        `/api/post.php?id=${selectedChild.id}`
+        `/api/send.php?id=${selectedChild.id}`
       );
       if (!currentDataResponse.ok) {
         throw new Error(`HTTP error! status: ${currentDataResponse.status}`);
@@ -63,7 +63,7 @@ const ChildGallery = ({ charityData, onSubmit }) => {
 
         const updateData = await updateResponse.json();
         console.log('Відповідь від сервера (оновлено):', updateData);
-        setServerResponse('Уррра! Реєстрація успішка, гайда за подарунком!');
+        setServerResponse('Уррра! Реєстрація успішна, гайда за подарунком!');
         onSubmit();
       } else {
         // Якщо поле wizard вже заповнене

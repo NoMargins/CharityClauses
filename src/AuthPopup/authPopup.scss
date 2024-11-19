@@ -13,7 +13,7 @@
     .popup-content {
       position: relative;
       background-color: white;
-      padding: 20px;
+      padding: 12px;
       border-radius: 5px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       z-index: 1001; // Забезпечує, що вміст попапу знаходиться над overlay
@@ -30,18 +30,20 @@
       }
       h2 {
         color: #007bff; // Кольорове оформлення для основної кнопки
-        margin-top: 0.8em;
-        margin-bottom: 0.8em;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+        font-size: 1.5em;
 
       }
 
       input {
-        font-size: 20px;
+        font-size: 16px;
       }
 
       p {
-        font-size: 20px;
+        font-size: 16px;
         text-align: left;
+        margin-bottom: 0.5em;
       }
     
         .close-button {
@@ -66,18 +68,19 @@
   
         .form-check-label {
           margin: 0; // Видалити стандартні маржини лейбла
+          font-size: 14px;
         }
       }
   
       .btn {
         padding: 8px 15px; // Внутрішні відступи кнопки
-        border-radius: 4px; // Округлені кути кнопки
+        border-radius: 8px; // Округлені кути кнопки
   
         &-primary {
           background-color: #007bff; // Кольорове оформлення для основної кнопки
           border: none;
           color: white;
-          font-size: 20px;
+          font-size:18px;
           &:hover {
             background-color: green; // Кольорове оформлення для основної кнопки
           }

@@ -20,12 +20,12 @@ const App = ({ url }) => {
   const [isWaiting, setIsWaiting] = useState(false);
 
   const buttonStyle = (tabId) => ({
-    backgroundColor: activeTab === tabId ? '#95011C' : 'transparent',
+    backgroundColor: activeTab === tabId ? '#a7ccec' : 'transparent',
     color: activeTab === tabId ? 'white' : 'black',
     width: '100%',
     textAlign: 'center',
     marginTop: '12px',
-    border: '1px solid #95011C',
+    border: '1px solid #a7ccec',
   });
 
   const fetchData = async () => {

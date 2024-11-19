@@ -51,8 +51,8 @@ const InProgress = ({ charityData }) => {
   return (
     <div className='takenChildrenSection'>
       <div className='search-box d-flex flex-column justify-content-center align-items-center my-3'>
-        <span>Щоб знайти своїх підопічних, введіть у пошукове поле Ваше ПІБ або телефон чи е-мейл.</span>
-        <div className='together-section' style={{ width: '500px', display: 'flex', flexDirection: 'column', margin: '12px 0', fontSize: '18px' }}>
+        <span>Щоб знайти своїх підопічних, введіть у пошукове поле своє ПІБ або телефон чи емейл.</span>
+        <div className='together-section' style={{ width: '500px', display: 'flex', flexDirection: 'column', margin: '12px 0', fontSize: '6px' }}>
           <input
             type="text"
             className="form-control me-2"
