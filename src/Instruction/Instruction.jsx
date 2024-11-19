@@ -9,8 +9,8 @@ const Instruction = () => {
   };
 
   return (
-    <div className="instruction container">
-        <h2 className="text-center mb-4" onClick={toggleCollapse} style={{marginTop: '12px'}}>
+    <div className="instruction container" >
+        <h2 className="text-center mb-4" onClick={toggleCollapse} style={{marginTop: '12px', fontSize: '22px'}}>
         📃Інструкція {isCollapsed ? '▼' : '▲'} {/* Іконка індикатора */}
       </h2>
       {!isCollapsed && ( // Показуємо або ховаємо зміст на основі стану isCollapsed

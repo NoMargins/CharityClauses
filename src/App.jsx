@@ -20,13 +20,13 @@ const App = ({ url }) => {
   const [isWaiting, setIsWaiting] = useState(false);
 
   const buttonStyle = (tabId) => ({
-    backgroundColor: activeTab === tabId ? '#a7ccec' : 'transparent',
+    backgroundColor: activeTab === tabId ? '#54a1e3' : 'transparent',
     color: activeTab === tabId ? 'white' : 'black',
     width: activeTab === tabId ? '55%' : '45%',
     textAlign: 'center',
     // borderRadius: '24px',
     marginTop: '12px',
-    border: '1px solid #a7ccec',
+    border: '1px solid #54a1e3',
   });
   
   // Updated buttonStyle using classnames
@@ -154,7 +154,7 @@ const App = ({ url }) => {
           <Description />
           {currentList.length > 0 && <Map childrenWithoutWizard={childWithoutWizard} handleMarkerClick={handleMarkerClick} />}
         </section>
-      <section className='instructions'>
+      <section className='instructions' style={{width: '100vw'}}>
         <Instruction />
       </section>
       <div className="App" style={{ textAlign: 'center' }}>
