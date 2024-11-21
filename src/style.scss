@@ -2,6 +2,13 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'Sunday';
+    src: url('../public/fonts/Sunday.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 #root {
     font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif;
 }
